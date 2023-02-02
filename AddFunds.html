@@ -1,0 +1,243 @@
+<!-- <?html
+session_start();
+
+
+
+    
+  if(isset($_POST["sendMoneyBTN"])){
+    
+  
+    require_once "Connection.html"; //Import the connection 
+
+
+    //creating a session that will equal the amount of money that was added and number of card
+  $userEmailAdd = htmlentities($_POST["fundEmail"]);
+$_SESSION["SenderEmail"] =  $userEmailAdd;
+
+
+//variable that will equal the amount to add and card;
+
+$addFundsNumber = mysqli_real_escape_string($Connection,  htmlentities($_POST["fundAmount"]));
+$addCardNumber = mysqli_real_escape_string($Connection,  htmlentities($_POST["AddAmount"]));
+
+//select query that will get the data
+$addFundsSQL = "SELECT user_email, user_balance, user_card FROM Users WHERE user_email = '$userEmailAdd'";
+//Quering to get data
+
+
+
+ $sqlAddMoney = mysqli_query($Connection, $addFundsSQL);
+
+ $moneyCheck = mysqli_num_rows($sqlAddMoney);
+ $moneyRow = mysqli_fetch_assoc($sqlAddMoney);
+ if($moneyCheck > 0){
+  //mysqli_query($Connection, $addFundsSQL);
+
+
+if( $moneyRow["user_email"] ==   $userEmailAdd){
+//creating query to update
+
+$updateBalance= "UPDATE Users SET user_balance = (user_balance + '$addFundsNumber') WHERE user_email = '$userEmailAdd'";
+$updateCard = "UPDATE Users SET user_card = '$addCardNumber' WHERE user_email = '$userEmailAdd'";
+mysqli_query($Connection, $updateBalance);
+mysqli_query($Connection, $updateCard);
+$_SESSION["AddNum"] = $addFundsNumber;
+
+function sendEmail()
+
+{
+
+    session_start();
+    $bAdder = $_SESSION["AddNum"] ;
+    $namer = $_SESSION["namer"];
+    $mail_to =   $_SESSION["SenderEmail"];
+    $mail_subject = "Money added succesfully!";
+    $mail_body = "Hey ". $namer . ", you just added $bAdder dollars in your account!";
+
+    $cURL_key = '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';
+    $mail_from = 'victoramisi08@gmail.com';
+
+    $curl = curl_init();
+
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.sendgrid.com/v3/mail/send",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => "{\"personalizations\": [{\"to\": [{\"email\": \"$mail_to\"}]}],\"from\": {\"email\": \"$mail_from\"},\"subject\": \"$mail_subject\",\"content\": [{\"type\": \"text/plain\", \"value\": \"$mail_body\"}]}",
+        CURLOPT_HTTPHEADER => array(
+            "authorization: Bearer $cURL_key",
+            "cache-control: no-cache",
+            "content-type: application/json"
+        ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($err) {
+        echo "cURL Error #:" . $err;
+    } else {
+        echo $response;
+    }
+}
+sendEmail();
+  echo '<script type="text/javascript"> window.location="myaccount.html";</script>';
+
+
+
+}
+ }
+
+
+
+
+ if($moneyCheck == 0){
+  //mysqli_query($Connection, $addFundsSQL);
+
+if( $moneyRow["user_email"] !==   $userEmailAdd){
+  echo "<script type='text/javascript'>alert('Please type your actual email or sign up');</script>";
+}
+
+ }
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------
+
+
+//insert card inside the account
+//$CardNumSQL = "UPDATE Users SET user_card = '$addCardNumber'";
+
+//mysqli_query($Connection, $CardNumSQL);
+
+
+
+//echo '<script type="text/javascript"> window.location="myaccount.html";</script>';
+
+
+  }
+
+
+
+?>
+
+
+ -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Main head content----------------------------------------------------------------------------->
+<link rel="stylesheet" href="AddFunds.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:wght@100;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="homePage.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+<!------------------------>
+
+</head>
+<body>
+<!--Creating the navigation------------------>
+
+<nav class="navbar">
+
+ <i><a style="
+ text-decoration: none;
+ " href="Home.html"> <div data-aos="fade-right" class="brand-title">Money Sender<sub style="font-size: 0.8rem">Beta</sub></div></a></i>
+
+<a href="#" class="toggle-button">
+<span   class="bars"></span>
+<span class="bars"></span>
+<span class="bars"></span>
+
+</a>
+
+<div class="navbar-links">
+<ul>
+  <li><a href="Home.html">Home</a></li>
+  <li><a  href="transferFunds.html">Transfer</a></li>
+  <li><a  href="myaccount.html">Account</a></li>
+  <li><a  href="Contact.html">Contact</a></li>
+
+
+</ul>
+</div>
+
+</nav>
+
+
+
+<!--End of navigation------------------------->
+
+<br><br>
+<div class="sendFundsSection">
+
+  <i><h1 class="personalMessage">Instant Add</h1></i>
+  <form action="AddFunds.html" method="post">
+    <br/>
+    <label class="personalLabel">Required fields have an asterisk: *</label>
+ <br>
+<br>
+  <label class="personalLabel">Amount to Add in  dollars (CAD)*</label>
+  <br>
+  <label class="personalLabel">Minimum 10$ | Max 500$</label>
+  <br/>
+  <input min="10" max="500" name="fundAmount" class="fundAmount" type="number" placeholder="Enter amount" required/>
+<br/>
+<br/>
+<label class="personalLabel">Last 4 digits of debit/credit number</label>
+<br/>
+<input minlength="4" maxlength="4" min="0" name="AddAmount" class="AddAmount" type="tel" placeholder="Enter number" required/>
+<br>
+<br>
+<label class="personalLabel">Confirm your email*</label>
+<br/>
+<input  name="fundEmail" class="fundEmail" type="email" placeholder="Enter email" required/>
+<br/>
+<br/>
+
+<button  class="sendMoneyBTN" name="sendMoneyBTN" type="submit">Add</button>
+<br>
+<br>
+<br>
+<label class="personalLabel">Check email for confirmation after sending</label>
+  </form>
+
+ 
+
+</div>
+
+<!--On scroll animation--->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1500,
+    once: true,
+  });
+</script>
+
+</body>
+
+    </div>
+  </div>
+</footer>
+</html>

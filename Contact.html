@@ -1,0 +1,172 @@
+<!-- <?html 
+
+
+if(isset($_POST["contactBTN"])){
+session_start();
+
+  $contactEmail = htmlentities($_POST["contactEmail"])  ;
+$contactSubject  = htmlentities($_POST["subjectArea"]) ;
+$contactMessage = htmlentities($_POST["TextArea"]) ;
+
+$_SESSION["conEmail"] = $contactEmail;
+$_SESSION["conSub"] = $contactSubject;
+$_SESSION["conMsg"] = $contactMessage;
+
+//define("SENDGRID_API_KEY", "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");
+
+function sendEmail()
+
+{
+
+    session_start();
+    $mail_to =  "victoramisi08@gmail.com";
+    $mail_subject = $_SESSION["conSub"];
+    $mail_body = $_SESSION["conMsg"] . " from " .$_SESSION["conEmail"];
+
+    $cURL_key = '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';
+    $mail_from = "victoramisi08@gmail.com";
+
+    $curl = curl_init();
+
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.sendgrid.com/v3/mail/send",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => "{\"personalizations\": [{\"to\": [{\"email\": \"$mail_to\"}]}],\"from\": {\"email\": \"$mail_from\"},\"subject\": \"$mail_subject\",\"content\": [{\"type\": \"text/plain\", \"value\": \"$mail_body\"}]}",
+        CURLOPT_HTTPHEADER => array(
+            "authorization: Bearer $cURL_key",
+            "cache-control: no-cache",
+            "content-type: application/json"
+        ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($err) {
+        echo "cURL Error #:" . $err;
+    } else {
+        echo $response;
+    }
+}
+
+
+sendEmail();
+
+echo "<script type='text/javascript'>alert('Victor will receive your message');</script>";
+}
+
+
+?>
+ -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Main head content----------------------------------------------------------------------------->
+<link rel="stylesheet" href="Contact.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:wght@100;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="homePage.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+<!------------------------>
+
+</head>
+<body>
+<!--Creating the navigation------------------>
+
+<nav class="navbar">
+
+ <i><a style="
+ text-decoration: none;
+ " href="Home.html"> <div data-aos="fade-right" class="brand-title">Money Sender<sub style="font-size: 0.8rem">Beta</sub></div></a></i>
+
+<a href="#" class="toggle-button">
+<span   class="bars"></span>
+<span class="bars"></span>
+<span class="bars"></span>
+
+</a>
+
+<div class="navbar-links">
+<ul>
+  <li><a href="Home.html">Home</a></li>
+  <li><a  href="myaccount.html">Account</a></li>
+    <button data-aos="fade-left" class="getStartedButton"  onclick="Redirect();"><i>Get Started</i></button>
+<script>
+function Redirect(){
+    window.location.href = "createAccount.html";
+}
+
+</script>
+</ul>
+</div>
+
+</nav>
+
+
+
+<!--End of navigation------------------------->
+
+
+<div class="contactSection">
+  <i><h1 class="personalMessage">Contact the developer</h1></i>
+  <br>
+  <form action="Contact.html" method="post">
+    <br/>
+  
+    <label class="personalLabel">Required fields have an asterisk: *</label>
+    <br/>
+    <label class="personalLabel">Enter email so we can get back to you*</label>
+    <br/>
+    <input  name="contactEmail" class="contactEmail" type="email" placeholder="Enter email" required/>
+  <br/>
+  <br>
+  <label class="personalLabel">Subject*</label>
+  <br>
+
+  <input maxlength="25"  name="subjectArea" class="subjectArea" type="text" placeholder="Type subject" required/>
+  <br/>
+  <br>
+  <label class="personalLabel">Type message*</label>
+  <br>
+  <textarea maxlength="300"  name="TextArea" class="TextArea" type="text" placeholder="Type message" required></textarea>
+  <br/>
+  <br>
+  <button class="contactBTN" name="contactBTN" type="submit">Send message</button>
+  </form>
+
+</div>
+<br><br>
+<!--On scroll animation--->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1500,
+    once: true,
+  });
+</script>
+
+</body>
+
+    </div>
+  </div>
+</footer>
+</html>

@@ -1,0 +1,396 @@
+/*-----Initial body styling------*/
+*{
+    box-sizing:border-box;
+
+}
+
+body{
+  min-height: 100vh;
+  overflow-y: hidden
+}
+
+html,body {
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+
+  
+}
+    
+      
+
+/*---------------------------------------------------------------------------*/
+
+/*---Style the navigation section----*/
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+   /* background-color: #E7FEFF;*/
+   border-bottom: 1px solid rgb(236, 239, 241);
+   width: 100%;
+
+}
+.brand-title{
+    font-size: 2rem;
+    font-family: futura;
+    margin: 1rem;
+   color:  rgb(0, 82, 255);
+}
+
+
+
+
+.navbar-links ul{
+margin: 1rem;
+padding: 0;
+display: flex;
+}
+
+.navbar-links li{
+    list-style: none;
+margin-left: 1rem;
+    }
+
+.navbar-links li a{
+    font-family: futura;
+        text-decoration: none;
+        color: rgb(5, 15, 25);
+        padding: 2rem;
+        display: block;
+        font-size: 1.7rem;
+        }
+        
+       .navbar-links li a:hover{
+          color:  rgb(0, 82, 255);
+            }
+
+
+.toggle-button{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 31px;
+    height: 21px
+}
+.toggle-button .bars{
+    height: 3px;
+    width: 100%;
+    background-color: rgb(0, 82, 255);
+    border-radius: 10px;
+
+}
+.logoutBTN{
+   margin-top: 15px;
+    height: 50px;
+    cursor: pointer;
+    font-family: futura;
+    font-size: 1.25rem;
+    color: white;
+background-color: rgb(0, 82, 255);
+border-radius: 30px;
+transition: transform 0.3s ease;
+
+box-shadow: 5px 5px #009FFD;
+}
+
+
+
+.logoutBTN:hover{
+
+animation: none;
+background-color: white;
+color: black;
+
+
+}
+
+/*---Media querry for navigation----*/
+@media (max-width: 1000px){
+    .toggle-button{
+        display: flex;
+      top: 1.7rem;
+    }
+    
+    .navbar-links{
+    display: none;
+    text-align: center;
+    }
+    
+    
+    
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+    
+    
+    }
+    .navbar-links ul{
+    flex-direction: column;
+    
+    
+    }
+    
+    .navbar-links li{
+        text-align: center;
+    
+    
+    }
+    
+    .navbar-links li:hover{
+    border-bottom: none;
+    }
+    
+    
+    .navbar-links li a:hover{
+        color:rgb(0, 82, 255);
+        }
+    
+    
+    .logoutBTN{
+       font-family: futura;
+        font-size: 1.5rem;
+    margin-left: 1rem;;
+    text-align: center;
+        color: white;
+    background-color: rgb(0, 82, 255);
+    animation: none;
+    border-radius: 50px;
+    box-shadow: 5px 5px #009FFD;
+    
+    }
+    
+    .logoutBTN:hover{
+    color: black;
+    background-color: white;
+    
+    
+    }
+    .navbar-links.active{
+        display: flex;
+    
+        }
+        
+    }
+    /*---End of media query for navigation----*/
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*--Body---*/
+   .activitySection{
+     margin-top: 8rem;
+     display: flex;
+     text-align: center;
+     justify-content: center;
+
+
+   }
+
+   .fundsSection{
+     text-align: start;
+
+   }
+.infoLabel{
+  font-size: 1rem;
+  font-family: futura;
+}
+   .FunLabel{
+     font-size: 2rem;
+     color:rgb(0, 82, 255);
+     font-family: futura;
+   }
+
+   /*---------------------------------*/
+   .bankSection{
+    margin-left: 15rem; /* HERE WE ADD THE SPACE */
+display: block;
+   }
+   .bankImage{
+     width: 13rem;
+     height: 10rem;
+   }
+   .insideFunds{
+color: lightgreen;
+font-family: futura;
+
+   }
+
+   @media (max-width: 1100px){
+    .activitySection{
+  display: block;
+ 
+    }
+    .fundsSection{
+      text-align: center;
+      font-size: 1.5rem;
+      font-family: futura;
+ 
+    }
+
+
+    .bankSection{
+      margin-left: 0;
+  display: block;
+     }
+ 
+    }
+    /*---Second section----*/
+
+    .secondSection{
+   
+      display: flex;
+
+     text-align: start;
+  justify-content: center;
+
+    }
+
+    .accountInfo{
+     
+      width: 40rem;
+      display: flex;
+      background-color: rgb(236, 239, 241);
+      border-radius: 30px;
+    }
+
+    .secondaccountInfo{
+      width: 40rem;
+      margin-left: 4rem;
+      display: flex;
+      background-color: rgb(236, 239, 241);
+      border-radius: 30px;
+  
+    }
+.avatar{
+
+  width: 8rem;
+  height: 7rem;
+  border-radius: 60px;
+}
+.accInfoText{
+
+  font-size: 1.5rem;
+  font-family: futura;
+}
+
+.insideInfoStuff{
+  display: block;
+
+}
+/*------------------------------------------*/
+
+.thirdaccountInfo{
+  width: 35rem;
+  background-color: rgb(236, 239, 241);
+  display: block;
+  border-radius: 30px;
+justify-content: center;
+ text-align: start;
+
+
+margin-left: 4rem;
+
+}
+
+
+.transInfoStuff{
+  display: flex;
+
+}
+
+.transInfoText{
+  font-size: 1rem;
+
+}
+
+.transInfoStuff h3{
+  font-size: 1rem;
+}
+@media (max-width: 1100px){
+  .secondSection{
+
+   display: block;
+
+  }
+  .accountInfo{
+    display: block;
+    text-align: center;
+    width: auto;
+
+  }
+  .accInfoText{
+  margin-left: 0;
+
+}
+
+.secondaccountInfo{
+  width: auto;
+  height: 14rem;
+  margin-left: 0;
+  text-align: center;
+  justify-content: center;
+}
+
+.thirdaccountInfo{
+  width: auto;
+  margin-left: 0;
+  height: 14rem;
+  display: block;
+ justify-content: center;
+ text-align: center;
+}
+
+
+.transInfoStuff{
+  display: flex;
+text-align: center;
+justify-content: center;
+}
+.transInfoText{
+  font-size: 1.5rem;
+
+}
+.transInfoStuff h3{
+font-size: 1.5rem;
+
+}
+}
+
+/*Menu*/
+
+.tablediv{
+  text-align: center;
+  justify-content: center;
+  display: block;
+}
+
+.tablediv a{
+font-size: 2.5rem;
+font-family: futura;
+text-decoration: none;
+list-style: none;
+}
+
+
+@media (max-width: 1100px){
+
+  
+  .tablediv a{
+  font-size: 1.5rem;
+  font-family: futura;
+  text-decoration: none;
+list-style: none;
+  }
+}

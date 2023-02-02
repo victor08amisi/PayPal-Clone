@@ -1,0 +1,508 @@
+/*-----Initial body styling------*/
+*{
+    box-sizing:border-box;
+
+}
+
+body{
+  min-height: 100vh;
+}
+
+html,body {
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+
+  
+}
+    
+      
+
+/*---------------------------------------------------------------------------*/
+
+/*---Style the navigation section----*/
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+   /* background-color: #E7FEFF;*/
+   border-bottom: 1px solid rgb(236, 239, 241);
+   width: 100%;
+
+}
+.brand-title{
+    font-size: 2rem;
+    font-family: futura;
+    margin: 1rem;
+   color:  rgb(0, 82, 255);
+}
+
+
+
+.navbar-links ul{
+margin: 1rem;
+padding: 0;
+display: flex;
+}
+
+.navbar-links li{
+    list-style: none;
+margin-left: 1rem;
+    }
+
+.navbar-links li a{
+    font-family: futura;
+        text-decoration: none;
+        color: rgb(5, 15, 25);
+        padding: 2rem;
+        display: block;
+        font-size: 1.7rem;
+        }
+        
+        .navbar-links li a:hover{
+          color:  rgb(0, 82, 255);
+            }
+
+
+.toggle-button{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 31px;
+    height: 21px
+}
+.toggle-button .bars{
+    height: 3px;
+    width: 100%;
+    background-color: rgb(0, 82, 255);
+    border-radius: 10px;
+
+}
+.getStartedButton{
+   margin-top: 15px;
+    height: 50px;
+    cursor: pointer;
+    font-family: futura;
+    font-size: 1.25rem;
+    color: white;
+background-color: rgb(0, 82, 255);
+border-radius: 30px;
+transition: transform 0.3s ease;
+
+box-shadow: 5px 5px #009FFD;
+}
+
+
+
+.getStartedButton:hover{
+
+animation: none;
+background-color: white;
+color: black;
+
+
+}
+
+/*---Media querry for navigation----*/
+@media (max-width: 800px){
+    .toggle-button{
+        display: flex;
+      top: 1.7rem;
+    }
+    
+    .navbar-links{
+    display: none;
+    text-align: center;
+    }
+    
+    
+    
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+   
+    
+    }
+    .navbar-links ul{
+    flex-direction: column;
+    
+    
+    }
+    
+    .navbar-links li{
+        text-align: center;
+    
+    
+    }
+    
+    .navbar-links li:hover{
+    border-bottom: none;
+    }
+    
+    
+    .navbar-links li a:hover{
+        color:rgb(0, 82, 255);
+        }
+    
+    
+    .getStartedButton{
+       font-family: futura;
+        font-size: 1.5rem;
+    margin-left: 1rem;;
+    text-align: center;
+        color: white;
+    background-color: rgb(0, 82, 255);
+    animation: none;
+    border-radius: 50px;
+    box-shadow: 5px 5px #009FFD;
+    
+    }
+    
+    .getStartedButton:hover{
+    color: black;
+    background-color: white;
+    
+    
+    }
+    .navbar-links.active{
+        display: flex;
+    
+        }
+        
+    }
+    /*---End of media query for navigation----*/
+
+
+
+     /*---Body----*/
+
+     .SignUpPersonal{
+          display: flex;
+          justify-content: center;
+          text-align: center;
+          width: 100%;
+     }
+
+   
+.personalMessage{
+  font-size: 2.5rem;
+font-family: futura;
+color: rgb(0, 82, 255);
+}
+
+.personalLabel{
+  font-family: futura;
+  font-size: 1rem;
+}
+
+.SignUpPersonal a{ 
+  font-family: futura;
+  font-size: 1.5rem;
+
+}
+
+/*input styling*/
+.personalFirstName{
+  border: 2px solid gray;
+  border-radius: 15px;
+  width: 25rem;
+  height: 3rem;
+
+}
+.personalLastName{
+  border: 2px solid gray;
+  border-radius: 15px;
+  width: 25rem;
+  height: 3rem;
+
+}
+
+.personalEmail{
+  border: 2px solid gray;
+  border-radius: 15px;
+  width: 25rem;
+  height: 3rem;
+}
+
+
+.personalPasscode{
+  border: 2px solid gray;
+  border-radius: 15px;
+  width: 25rem;
+  height: 3rem;
+}
+.personalSignUpBTN{
+ cursor: pointer;
+font-family: futura;
+font-size: 1.25rem;
+color: white;
+background-color: rgb(0, 82, 255);
+border-radius: 30px;
+transition: transform 0.3s ease;
+width: 10rem;
+box-shadow: 5px 5px #009FFD;
+}
+
+.personalSignUpBTN:hover{
+  animation: none;
+  background-color: white;
+  color: black;
+  
+  }
+  .personalAdd{
+    border: 2px solid gray;
+    border-radius: 15px;
+    width: 25rem;
+    height: 3rem;
+  }
+
+  .personalProvince{
+    border: 2px solid gray;
+    border-radius: 15px;
+    width: 25rem;
+    height: 3rem;
+  }
+  
+  /*media query for form*/
+
+  @media (max-width: 1100px){
+    .SignUpPersonal a{ 
+      font-family: futura;
+      font-size: 1rem;
+    
+    }
+    .personalProvince{
+      border: 2px solid gray;
+      border-radius: 15px;
+      width: 20rem;
+      height: 3rem;
+    }
+    .personalFirstName{
+      border: 2px solid gray;
+      border-radius: 15px;
+      width: 20rem;
+      height: 3rem;
+    
+    }
+    .personalLastName{
+      border: 2px solid gray;
+      border-radius: 15px;
+      width: 20rem;
+      height: 3rem;
+    
+    }
+
+
+
+    .personalEmail{
+      border: 2px solid gray;
+      border-radius: 15px;
+      width: 20rem;
+      height: 3rem;
+    }
+
+    .personalAdd{
+      border: 2px solid gray;
+      border-radius: 15px;
+      width: 20rem;
+      height: 3rem;
+    }
+    .personalPasscode{
+      border: 2px solid gray;
+      border-radius: 15px;
+      width: 20rem;
+      height: 3rem;
+    }
+  }
+
+  
+
+
+      /*---Footer----*/
+
+      .site-footer
+      {
+        
+  position: sticky;
+  top: 100%;
+  
+  
+        background-color:rgb(0, 82, 255);
+        font-family: futura;
+      }
+      .site-footer hr
+      {
+          font-family: futura;
+        opacity:0.5
+      }
+      .site-footer hr.small
+      {
+        margin:20px 0
+      }
+      .site-footer h6
+      {
+          font-family: futura;
+        color:#fff;
+        font-size:16px;
+        text-transform:uppercase;
+        margin-top:5px;
+        letter-spacing:2px
+      }
+      .site-footer h6:hover
+      {
+          color:  #009FFD;
+      }
+      .site-footer a
+      {
+          color:white;
+          font-family: futura;
+      }
+      .site-footer a:hover
+      {
+        color:#3366cc;
+        text-decoration:none;
+      }
+      .footer-links
+      {
+        padding-left:0;
+        list-style:none;
+        font-family: futura;
+      }
+      .footer-links li
+      {
+        display:block
+      }
+      .footer-links a
+      {
+          color:white;
+          font-family: futura;
+      }
+      .footer-links a:active,.footer-links a:focus,.footer-links a:hover
+      {
+  color:  #009FFD;
+        text-decoration:none;
+      }
+      .footer-links.inline li
+      {
+        display:inline-block
+      }
+      .site-footer .social-icons
+      {
+        text-align:right
+      }
+      .site-footer .social-icons a
+      {
+        width:40px;
+        height:40px;
+        line-height:40px;
+        margin-left:6px;
+        margin-right:0;
+        border-radius:100%;
+        background-color:#33353d
+      }
+      .copyright-text
+      {
+        margin:0;
+        color: white;
+        font-family: futura;
+      }
+      .copyright-text:hover
+      {
+    color:#009FFD
+      }
+      @media (max-width:991px)
+      {
+        .site-footer [class^=col-]
+        {
+          margin-bottom:30px
+        }
+      }
+      @media (max-width:767px)
+      {
+        .site-footer
+        {
+          text-align: center;
+          justify-content: center;
+          padding-bottom:0
+        }
+        .site-footer .copyright-text,.site-footer .social-icons
+        {
+          text-align:center
+        }
+      }
+      .social-icons
+      {
+        padding-left:0;
+        margin-bottom:0;
+        list-style:none
+      }
+      .social-icons li
+      {
+        display:inline-block;
+        margin-bottom:4px
+      }
+      .social-icons li.title
+      {
+        margin-right:15px;
+        text-transform:uppercase;
+        color:white;
+        font-weight:700;
+        font-size:13px
+      }
+      .social-icons a{
+    
+          font-family: futura;
+          color:white;
+        font-size:16px;
+        display:inline-block;
+        line-height:44px;
+        width:44px;
+        height:44px;
+        text-align:center;
+        margin-right:8px;
+        border-radius:100%;
+        -webkit-transition:all .2s linear;
+        -o-transition:all .2s linear;
+        transition:all .2s linear
+      }
+      .social-icons a:active,.social-icons a:focus,.social-icons a:hover
+      {
+          color:  #009FFD;
+        
+      }
+      .social-icons.size-sm a
+      {
+        line-height:34px;
+        height:34px;
+        width:34px;
+        font-size:14px
+      }
+      .social-icons a.facebook:hover
+      {
+          color:  #009FFD;
+      }
+      .social-icons a.twitter:hover
+      {
+          color:  #009FFD;
+      }
+      .social-icons a.linkedin:hover
+      {
+          color:  #009FFD;
+      }
+      .social-icons a.dribbble:hover
+      {
+          color:  #009FFD;
+      }
+      @media (max-width:767px)
+      {
+        .social-icons li.title
+        {
+          display:block;
+          margin-right:0;
+          font-weight:600
+        }
+      }

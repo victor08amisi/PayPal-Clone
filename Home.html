@@ -1,0 +1,288 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Main head content----------------------------------------------------------------------------->
+<link rel="stylesheet" href="Home.css">
+<link rel="icon" type="image/x-icon" href="Images/Favicon.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:wght@100;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="homePage.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+<!------------------------>
+
+</head>
+<body>
+<!--Creating the navigation------------------>
+
+<nav class="navbar">
+
+ <i><a style="
+ text-decoration: none;
+ " href="Home.html"> <div data-aos="fade-right" class="brand-title">Money Sender<sub style="font-size: 0.8rem">Beta</sub></div></a></i>
+
+<a href="#" class="toggle-button">
+<span   class="bars"></span>
+<span class="bars"></span>
+<span class="bars"></span>
+
+</a>
+
+<div class="navbar-links">
+<ul>
+  <li><a href="Home.html">Home</a></li>
+  <li><a  href="Contact.html">Contact</a></li>
+  <li><a  href="myaccount.html">Account</a></li>
+
+    <button data-aos="fade-left" class="getStartedButton" name="getStartedButton" onclick="Redirect();"><i>Get Started</i></button>
+
+<script>
+function Redirect(){
+    window.location.href = "createAccount.html";
+}
+
+</script>
+</ul>
+</div>
+
+</nav>
+
+
+
+<!--End of navigation------------------------->
+
+
+<!--Begining of intro section----------------------------->
+
+<div class="homeContainer1">
+
+<!--begining of text div-------------------->
+<div class="HomeTextSection">
+<i><h1 data-aos="fade-up" class="introText">An Instant,<br/> free, <br/>platform<br/> with no strings attached </h1></i>
+<i><p data-aos="fade-up">Add and send money. Join now!</p></i>
+</div>
+<!--End of text div------------------------>
+
+
+<!--Begining of image div---------------------->
+<div class="HomePageImageSection">
+<img data-aos="fade-up" class="introImage1" src="Images/IntroImage1.jpeg">
+</div>
+<!--End of image div--------------------------->
+</div><!--End of intro section------------------------>
+
+
+
+<!--Begining detailed section------------->
+
+<div class="MainContainerInfo">
+
+    <div
+    style="position: static;"
+    >
+<i><h1 data-aos="fade-right" class="detailText1"
+
+    
+>Send money to friends & family.</h1></i>
+<i><p class="pGraph">With Money Sender,  you can send canadian currency fast  with  our user friendly platform.</p></i>
+<i><p class="pGraph">Join to access amazing features.</p></i>
+</div>
+<img data-aos="fade-right" class="FriendsImage" src="Images/Friends.jpeg">
+
+<!--end of Info detail------------->
+<br><br>
+
+<div style="justify-content: center;
+text-align: center;
+display: flex;
+"><i><p class="Prices" data-aos="fade-right">
+Real time prices. Buying crypto will soon be integrated.</p></i></div>
+<i><p class="Prices" data-aos="fade-right">
+  Fetched using Coinbase API.</p></i></div>
+
+
+<div style="justify-content: center;
+text-align: center;
+display: flex;
+">
+
+
+<style type="text/css">
+
+       
+
+
+  .content-table {
+font-family: futura;
+font-size: 1.5rem;;
+
+}
+
+
+.content-table td{
+font-family: futura;
+font-size: 1.5rem;
+
+}
+
+.content-table tr th{
+background-color:  rgb(0, 82, 255);
+color: white;
+text-align: center;
+font-weight: bold;
+}
+.content-table td, 
+.content-table th
+{
+padding: 0.5rem 0.5rem;
+
+}
+
+.content-table td
+{
+border-bottom: 3px solid rgb(236, 239, 241);
+}
+
+.content-table td:nth-of-type(even){
+background-color: #f3f3f3;
+
+}
+
+</style>
+
+
+<table class="content-table">
+<!------>
+<tr>
+  <th>Name</th>
+  <th>Price</th>
+</tr>
+<!------>
+
+<tr>
+<td>Bitcoin (BTC)</td>
+<td><div id="p1"></div></td></tr>
+
+
+
+
+
+
+<tr>
+<td>Ethereum (ETH)</td>
+
+<td><div id="p2"></div></td>
+</tr>
+
+
+<tr>
+<td>Tether (USDT)</td>
+<td><div id="p3"></div></td>
+</tr>
+
+
+
+<tr>
+<td>USD Coin (USDC)</td>
+<td><div id="p4"></div></td>
+</tr>
+
+
+
+<tr>
+<td>Binance Coin (BUSD)</td>
+<td><div id="p5"></div></td>
+</tr>
+
+
+
+
+
+<script src="PricesAPI.js"></script>
+</table>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<!--Begining of Business Section------------->
+
+<br>
+<br>
+<!--On scroll animation--->
+
+<script>
+  //Bitcoin price api url
+
+fetch("https://api.coinbase.com/v2/prices/BTC-CAD/buy").then((response)=>{
+return response.json();
+
+}).then((data) =>{
+    console.log(data)
+console.log(data.data.amount)
+var p1 = data.data.amount;
+   document.getElementById("p1").innerText = p1;
+})
+
+</script>
+
+
+
+
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1500,
+    once: true,
+  });
+</script>
+
+</body>
+ <!-- Site footer -->
+ <footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <h6>For more Info</h6>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <h6>Categories</h6>
+        <ul class="footer-links">
+          <li><a href="https://www.youtube.com">Youtube</a></li>
+          <li><a href="https://www.instagram.com">Instagram</a></li>
+          <li><a href="https://www.snapchat.com">Snapchat</a></li>
+          <li><a href="https://www.tiktok.com">Tiktok</a></li>
+          <li><a href="https://www.linkedin.com">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <h6>Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="Contact.html">Contact Us</a></li>
+          <li><a href="createAccount.html">Create account</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+  </div>
+  
+  </div>
+</footer>
+</html>

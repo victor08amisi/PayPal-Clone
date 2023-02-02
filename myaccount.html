@@ -1,0 +1,180 @@
+<!-- <?html 
+
+session_start();
+if(!isset( $_SESSION["mailer"])){
+    echo '<script type="text/javascript"> window.location="createAccount.html";</script>';
+  }
+//Create the code that will get the balance
+require_once "Connection.html"; //Import the connection 
+$accMailing = mysqli_real_escape_string($Connection,  htmlentities($_SESSION["mailer"]));
+
+//select query that will get the data
+$getAll = "SELECT * FROM Users WHERE user_email = '$accMailing'";
+//send the query
+$sqlAll = mysqli_query($Connection, $getAll);
+
+//create a variable that will equal the number of rows of the result
+$sqlAllCheck = mysqli_num_rows($sqlAll);
+
+//create an array that will help get individual item
+$Row = mysqli_fetch_assoc($sqlAll);
+if($sqlAllCheck  > 0){
+$balanceState =  $Row["user_balance"] ;
+$cardNum =  $Row["user_card"];
+
+$accName =  $Row["user_firstname"] ;
+
+$accLastName = $Row["user_lastname"] ;
+}
+
+?> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Main head content----------------------------------------------------------------------------->
+<link rel="stylesheet" href="myaccount.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:wght@100;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="homePage.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My account</title>
+<!------------------------>
+
+</head>
+<body>
+<!--Creating the navigation------------------>
+
+<nav class="navbar">
+
+ <i><a style="
+ text-decoration: none;
+ " href="Home.html"> <div data-aos="fade-right" class="brand-title">Money Sender<sub style="font-size: 0.8rem">Beta</sub></div></a></i>
+
+<a href="#" class="toggle-button">
+<span   class="bars"></span>
+<span class="bars"></span>
+<span class="bars"></span>
+
+</a>
+
+<div class="navbar-links">
+<ul>
+  <li><a href="Home.html">Home</a></li>
+  <li><a  href="transferFunds.html">Transfer</a></li>
+  <li><a  href="AddFunds.html">Add</a></li>
+    <li><a  href="Delete.html">Delete Account</a></li>
+  <li><a  href="Contact.html">Contact</a></li>
+
+</ul>
+</div>
+
+</nav>
+
+
+
+<!--End of navigation------------------------->
+
+<div class="activitySection"> <!--Main content start-->
+  <div class="fundsSection"> <!--Inner first content start-->
+
+<i><label data-aos="fade-right" class="FunLabel"><h1>Account balance</h1></label></i>
+
+<div class="insideFunds">
+  <h3 data-aos="fade-right"><?html echo $balanceState; ?></h3>
+
+ 
+  
+
+
+
+
+
+</div> 
+<br>
+
+<h5 class="infoLabel">* Based on the most recent currency conversion rate.</h5>
+  </div><!--Inner first content end-->
+<br>
+<br>
+
+<div class="bankSection"><!--Inner second content start-->
+<i><label class="FunLabel"><h1>Your card</h1></label></i>
+<br>
+<img class="bankImage" src="Images/Debit.jpeg">
+<br>
+<h5 class="infoLabel">Debit/Credit: ****<?html echo $cardNum; ?></h5>
+
+
+
+</div><!--Inner second content end-->
+</div><!--End of main content start-->
+<br><br>
+
+<div class="secondSection"><!--Second section start-->
+
+
+<div class="accountInfo"><!--Account info content start-->
+<img class="avatar"src="Images/avatar.jpeg">
+<br>
+<br>
+<div class="insideInfoStuff">
+  <label style="font-size: 2rem;" class="accInfoText">Contact info</label>
+  <br>
+  <label class="accInfoText">Name: <?html echo  $accName." ".$accLastName ?></label>
+  <br>
+  <label class="accInfoText">Email: <?html echo $accMailing; ?></label>
+  <br>
+<br>
+</div>
+
+</div><!--Account info end-->
+
+<br>
+<br>
+
+
+
+
+  </div><!--Account info end-->
+
+
+
+  <br>
+  <br>
+
+ 
+  
+  
+    </div><!--Account info end-->
+<br>
+<br>
+
+
+</div><!--Menu section end-->
+<br><br>
+
+
+
+
+<!--On scroll animation--->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 1500,
+    once: true,
+  });
+</script>
+
+</body>
+ 
+</html>
